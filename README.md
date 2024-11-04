@@ -1,2 +1,2 @@
-# billder
-build and export web components
+# Billder
+Build and export web components
