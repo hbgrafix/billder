@@ -1,2 +1,2 @@
-# grafix
-graphics, tools, apps, solutions
+# billder
+build and export web components
