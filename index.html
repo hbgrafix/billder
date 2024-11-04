@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BILLDER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="toolbar row space-between">
+        <div class="toolbar-title">Brand Kit</div>
+        <div class="toolbar-buttons row end">
+            <button class="btn btn-toolbar" id="btnNew">New</button>
+            <input type="file" id="fileInput" accept=".html,.css,.json" style="display: none;">
+            <button class="btn btn-toolbar" id="btnOpen">Open</button>
+            <button class="btn btn-toolbar" id="btnSave">Save</button>
+            <button class="btn btn-toolbar" id="btnSchemes">Schemes</button>
+        </div>
+
+        <div class="dummy-section hidden">
+            <h2>Dummy Content</h2>
+            <div class="row center-mid dummy">
+                <div class="col space-around mid light">
+                    <h3>Light</h3>
+                    <h5>Scheme</h4>
+                    <p>Lorem Ipsum</p>
+                    <div class="primary">Primary</div>
+                    <div class="secondary">Secondary</div>
+                    <div class="accent">Accent</div>
+                </div>
+                <div class="col space-around mid dark">
+                    <h3>Dark</h3>
+                    <h5>Scheme</h4>
+                    <p>Lorem Ipsum</p>
+                    <div class="primary">Primary</div>
+                    <div class="secondary">Secondary</div>
+                    <div class="accent">Accent</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="palette" class="palette">
+            <div id="color-palette" class="row space-between">
+                <div class="clr" id="primary">
+                    <h5>Primary</h5>
+                    <div class="display"></div>
+                    <div class="hex">#123456</div>
+                </div>
+                <div class="clr" id="secondary">
+                    <h5>Secondary</h5>
+                    <div class="display"></div>
+                    <div class="hex">#123456</div>
+                </div>
+                <div class="clr" id="accent">
+                    <h5>Accent</h5>
+                    <div class="display"></div>
+                    <div class="hex">#123456</div>
+                </div>
+                <div class="clr" id="light">
+                    <h5>Light</h5>
+                    <div class="display"></div>
+                    <div class="hex">#123456</div>
+                </div>
+                <div class="clr" id="dark">
+                    <h5>Dark</h5>
+                    <div class="display"></div>
+                    <div class="hex">#123456</div>
+                </div>
+            </div>
+            <input type="color" id="colorPicker" style="display: none;">
+        </div>
+    
+
+        <div id="panelSchemes" class="panel hidden">
+            <div class="theme-toggle">
+                <span>Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="slider round"></span>
+                </label>
+                <span>Dark</span>
+            </div>
+            <h2 class="active-scheme">Default</h2>
+            <div class="schemes-container">
+                <ul class="schemes"></ul>
+            </div>
+            <button id="addScheme" class="btn btn-primary">Add Scheme</button>
+        </div>
+
+
+
+
+        <div id="panelNew" class="panel hidden">
+            <h2>Create New Component</h2>
+
+            <div class="col start" id="componentAttributes">
+                <div class="row space-between">
+                    <label for="componentType">Component Type</label>
+                    <select id="componentType">
+                        <option value="div">Div</option>
+                        <option value="h1">Heading 1</option>
+                        <option value="h2">Heading 2</option>
+                        <option value="h3">Heading 3</option>
+                        <option value="h4">Heading 4</option>
+                        <option value="h5">Heading 5</option>
+                        <option value="p">Paragraph</option>
+                        <option value="span">Span</option>
+                    </select>
+                </div>
+                <div id="Selectors" class="row space-between">
+                    <div class="col start">
+                        <label for="componentID">ID</label>
+                        <input type="text" id="componentID">
+                    </div>
+                    <div class="col start">
+                        <label for="componentClasses">Classes</label>
+                        <input type="text" id="componentClasses">
+                    </div>
+                </div>
+                <div class="row space-between">
+                    <label for="componentText">Text</label>
+                    <textarea id="componentText"></textarea>
+                </div>
+                <div class="row space-between">
+                    <label for="componentTxtColor">Text Color</label>
+                    <select id="componentTxtColor">
+                        <option value="var(--primary)" class="primary">Primary</option>
+                        <option value="var(--secondary)" class="secondary">Secondary</option>
+                        <option value="var(--accent)" class="accent">Accent</option>
+                        <option value="var(--light)" class="light">Light</option>
+                        <option value="var(--dark)" class="dark">Dark</option>
+                        <option value="var(--txt)" class="txt" selected>Text</option>
+                    </select>
+                </div>
+                <div class="row space-between">
+                    <label for="componentBgColor">Background Color</label>
+                    <select id="componentBgColor">
+                        <option value="var(--primary)" class="primary">Primary</option>
+                        <option value="var(--secondary)" class="secondary">Secondary</option>
+                        <option value="var(--accent)" class="accent">Accent</option>
+                        <option value="var(--light)" class="light">Light</option>
+                        <option value="var(--dark)" class="dark">Dark</option>
+                        <option value="var(--bg)" class="bg" selected>Background</option>
+                    </select>
+                </div>
+                <div class="row space-between">
+                    <label for="componentWidth">Width</label>
+                    <input type="range" id="componentWidth" min="0" max="1000" value="100">
+                    <input type="text" id="componentWidthValue" class="units" value="100">
+                    <select id="componentWidthUnit" class="units">
+                        <option value="auto">auto</option>
+                        <option value="px">px</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+                <div class="row space-between">
+                    <label for="componentHeight">Height</label>
+                    <input type="range" id="componentHeight" min="50" max="1000" value="25">
+                    <input type="text" id="componentHeightValue" class="units" value="25">
+                    <select id="componentHeightUnit" class="units">
+                        <option value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="auto">auto</option>
+                    </select>
+                </div>
+                <div class="row space-between">
+                    <label for="componentPadding">Padding</label>
+                    <input type="range" id="componentPadding" min="0" max="100" value="5">
+                    <input type="text" id="componentPaddingValue" class="units" value="5">
+                    <select id="componentPaddingUnit" class="units">
+                        <option value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="auto">auto</option>
+                    </select>
+                </div>
+                <div class="row space-between">
+                    <label for="componentMargin">Margin</label>
+                    <input type="range" id="componentMargin" min="0" max="100" value="5">
+                    <input type="text" id="componentMarginValue" class="units" value="5">
+                    <select id="componentMarginUnit" class="units">
+                        <option value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="auto">auto</option>
+                    </select>
+                </div>
+                <div class="row start">
+                    <button id="createComponentBtn" class="btn btn-primary">Create</button>
+                    <button id="cancelComponentBtn" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <!--
+        <div id="colorPalette" class="palette-section">
+            <h2>Color Palette</h2>
+            <!- Dynamic Color Palettes will be inserted here --
+        </div>
+        <div id="fontSelector" class="font-section">
+            <h2>Font Selector</h2>
+            <!- Dynamic Font Selectors will be inserted here --
+        </div>
+        -->
+        <h2>Dynamic Components</h2>
+        <div id="dynamicContent" class="dynamic-section">
+
+            <!-- Dynamic Components will be inserted here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="templator.js"></script>
+</body>
+</html>
